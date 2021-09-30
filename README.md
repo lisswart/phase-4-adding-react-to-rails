@@ -24,8 +24,8 @@ the process to make running React and Rails together a bit easier.
 
 To get started, let's spin up our React application using `create-react-app`:
 
-```sh
-npx create-react-app client --use-npm
+```console
+$ npx create-react-app client --use-npm
 ```
 
 This will create a new React application in a `client` folder, and will use npm
@@ -63,14 +63,14 @@ different port to run our React app in development:
 
 With that set up, let's try running our servers! In your terminal, run Rails:
 
-```sh
-rails s
+```console
+$ rails s
 ```
 
 Then, open a new terminal, and run React:
 
-```sh
-npm start --prefix client
+```console
+$ npm start --prefix client
 ```
 
 This will run `npm start` in the client directory. Verify that your app is
@@ -83,7 +83,7 @@ working by visiting:
 We can also see how to make a request using `fetch`. In the React application,
 update your `App.js` file with the following code:
 
-```js
+```jsx
 import { useEffect } from "react";
 
 function App() {
@@ -110,8 +110,8 @@ of opening multiple terminals.
 
 To facilitate this, we'll use the excellent [foreman][] gem. Install it:
 
-```sh
-gem install foreman
+```console
+$ gem install foreman
 ```
 
 Foreman works with a special kind of file known as a Procfile, which lists
@@ -128,8 +128,8 @@ api: PORT=3000 rails s
 
 Then, run it with Foreman:
 
-```sh
-foreman start -f Procfile.dev
+```console
+$ foreman start -f Procfile.dev
 ```
 
 This will start both React and Rails on separate ports, just like before; but
@@ -144,9 +144,9 @@ get a cleaner terminal output and allow terminal-based debugging with `byebug`.
 You can run each application separately by opening two terminal windows and
 running each of these commands in a separate window:
 
-```sh
-npm start --prefix client
-rails s
+```console
+$ npm start --prefix client
+$ rails s
 ```
 
 This will run React on port 4000 (thanks to the configuration in the
@@ -158,6 +158,14 @@ In the past couple lessons, we've seen how to put together the two pieces we'll
 need for full-stack applications by using `rails new` to create a new Rails API,
 and `create-react-app` to create a React project. Throughout the rest of this
 module, we'll focus on how our two applications communicate and share data.
+
+## Check For Understanding
+
+Before you move on, make sure you can answer the following questions:
+
+1. What options do you have for running Rails and React at the same time?
+2. What are the advantages and disadvantages of using `foreman` as described in
+   this lesson?
 
 ## Resources
 
